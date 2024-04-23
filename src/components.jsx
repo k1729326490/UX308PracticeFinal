@@ -1,73 +1,117 @@
-import {hello,computeAirQuality, sf2acres, calculateSlope} from './functions.js';
-
-function Question1(){
-    return <section>
-1. Write a function that takes a _name_ as an argument and _returns a string_ that _contains "hello"_ and the name paramerer. Test at least 3 names. <br />*Note ... I solved this one already
-      <h2>results</h2>
-      <p>hello("You") == "{hello('You')}"</p>
-      <p>hello("Me") == "{hello('Me')}"</p>
-      <p>hello("Everyone") == "{hello('Everyone')}"</p>
-    </section>;
-}
+import {colour_mix, largest_product, day_of_the_week, pay_raise, is_leap} from './function';
 
 
+function Question1() {
+    return mixMap[colours];
+  };
 
-function Question2() {
-  return <section>
+  const colour1 = "green";
+  const colour2 = "red";
+  const result1 = colour_mix(colour1, colour2);
+
+  const colour3 = "blue";
+  const colour4 = "red";
+  const result2 = colour_mix(colour3, colour4);
+
+  const colour5 = "green";
+  const colour6 = "blue";
+  const result3 = colour_mix(colour5, colour6);
+
+
+  return (
+    <section>
       <div>
-        <h1>Air Quality</h1>
-        <p>{computeAirQuality(25)}</p>
-        <p>{computeAirQuality(75)}</p>
-        <p>{computeAirQuality(125)}</p>
-        <p>{computeAirQuality(175)}</p>
-        <p>{computeAirQuality(250)}</p>
-        <p>{computeAirQuality(350)}</p>
+        <h1>Colour Mixing</h1>
+        <p>Colour mix of {colour1} and {colour2}: {result1}</p>
+        <p>Colour mix of {colour3} and {colour4}: {result2}</p>
+        <p>Colour mix of {colour5} and {colour6}: {result3}</p>
       </div>
-    </section>;
-}
-
-
-
-function Question3(){
-    return <section>
-3. There are 43,560 square feet per acre. Write a program that converts square feet to acres. Test at least 3 conversions.
-    <h2>Results</h2>
-    <p>sf2acres(10000) == {sf2acres(10000)}</p>
     </section>
-}
+  );
 
 
+  
 
-function Question4() {
+
+  function Question2() {
+    const val1 = 3;
+    const val2 = 7;
+    const val3 = 2;
+    const result = largest_product(val1, val2, val3);
+  
     return (
       <section>
-        <SlopeComponent />
+        <div>
+          <h1>Largest Product Calculation</h1>
+          <p>Largest product of {val1}, {val2}, and {val3} is: {result}</p>
+        </div>
       </section>
     );
   }
   
-  class SlopeComponent extends React.Component {
-    render() {
 
-      const point1 = { x: 1, y: 2 };
-      const point2 = { x: 3, y: 4 };
-      const point3 = { x: 5, y: 3 };
-      const point4 = { x: 7, y: 9 };
-      const point5 = { x: 0, y: 0 };
-      const point6 = { x: 0, y: 5 };
+
+
+  function Question3() {
+    const dayNumber = 3;
+    const dayName = day_of_the_week(dayNumber);
   
-      return (
+    return (
+      <section>
         <div>
-          <h1>Slope Calculation</h1>
-          <p>Slope of line (1, 2) to (3, 4): {calculateSlope(point1.x, point1.y, point2.x, point2.y)}</p>
-          <p>Slope of line (5, 3) to (7, 9): {calculateSlope(point3.x, point3.y, point4.x, point4.y)}</p>
-          <p>Slope of line (0, 0) to (0, 5): {calculateSlope(point5.x, point5.y, point6.x, point6.y)}</p>
+          <h1>Day of the Week Calculation</h1>
+          <p>Day of the week for day number {dayNumber} is: {dayName}</p>
         </div>
-      );
-    }
+      </section>
+    );
   }
-  
 
 
 
-export {Question1, Question2, Question3, Question4}
+function Question4() {
+  const status1 = 'F';
+  const years1 = 2;
+  const salary1 = 25000;
+  const newSalary1 = pay_raise(status1, years1, salary1);
+
+  const status2 = 'P';
+  const years2 = 5;
+  const salary2 = 30000;
+  const newSalary2 = pay_raise(status2, years2, salary2);
+
+  return (
+    <section>
+      <div>
+        <h1>Pay Raise Calculation</h1>
+        <p>New salary for Full Time employee with 2 years service: ${newSalary1}</p>
+        <p>New salary for Part Time employee with 5 years service: ${newSalary2}</p>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+function Question5() {
+
+  const year1 = 1999;
+  const result1 = is_leap(year1);
+
+  const year2 = 2000;
+  const result2 = is_leap(year2);
+
+  return (
+    <section>
+      <div>
+        <h1>Leap Year Test</h1>
+        <p>Is year {year1} a leap year? {result1.toString()}</p>
+        <p>Is year {year2} a leap year? {result2.toString()}</p>
+      </div>
+    </section>
+  );
+}
+
+
+
+export {Question1, Question2, Question3, Question4, Question5}
